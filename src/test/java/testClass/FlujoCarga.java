@@ -27,6 +27,9 @@ public class FlujoCarga {
         cargaInformacion.rellenarCampoAreaTexto("rellenarAreaTexto");
         cargaInformacion.rellenarCampoFecha("02/02/2024");
         cargaInformacion.rellenarCampoLista("valor 3");
+        cargaInformacion.seleccionMultiple2("1,2,3");
+        cargaInformacion.comboRadio(2);
+        cargaInformacion.clickBtnEnviar();
 
 
 

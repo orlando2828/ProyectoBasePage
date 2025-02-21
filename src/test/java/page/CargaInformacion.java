@@ -3,10 +3,8 @@ package page;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.Reporte.EstadoPrueba;
 import utils.Reporte.PdfQaNovaReports;
 
@@ -65,6 +63,7 @@ public class CargaInformacion extends BasePage {
 
 
     public CargaInformacion(WebDriver driver){
+
         super(driver);
     }
     public String recuperarTitulo(){
@@ -95,6 +94,52 @@ public class CargaInformacion extends BasePage {
     public void rellenarCampoLista(String valor) {
         Select select = new Select(campoLista);
         select.selectByVisibleText(valor);
+    }
+
+
+    public void seleccionMultiple2(String indicador) {
+        String[] indicadores = indicador.split(",");
+        for (String nro : indicadores) {
+            int numero = Integer.parseInt(nro);
+            switch (numero) {
+                case 1:
+                    campoMultiple1.click();
+                    break;
+                case 2:
+                    campoMultiple2.click();
+                    break;
+                case 3:
+                    campoMultiple3.click();
+                    break;
+                default:
+                    System.out.println("Valor no procesable");
+
+            }
+        }
+
+    }
+
+
+    public void comboRadio(int indicador) {
+        switch (indicador) {
+            case 1:
+                rdbtnCombo1.click();
+                break;
+            case 2:
+                rdbtnCombo2.click();
+                break;
+            case 3:
+                rdbtnCombo3.click();
+                break;
+            default:
+
+        }
+
+    }
+
+    public void clickBtnEnviar() {
+        PdfQaNovaReports.addWebReportImage("Datos formulario","Se ingresan datos al formulario", EstadoPrueba.PASSED,false);
+        btnEnviar.click();
     }
 
 
